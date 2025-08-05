@@ -63,7 +63,7 @@ navItems.forEach((item)=>{
     item.addEventListener("mouseover",(e)=>{
         e.stopPropagation();
         let pos=Number(getComputedStyle(item).getPropertyValue("--pos")); 
-        hoverSlider.style.display="flex"; 
+        hoverSlider.style.opacity="1"; 
         hoverSlider.style.transform=`translateX(${item.offsetLeft-hoverSlider.offsetLeft}px) translateX(-50%)`;
         hoverContainer.style.transform=`translateX(-${hoverContainer.children[pos].offsetLeft}px)`;
         let height = hoverContainer.children[pos].getBoundingClientRect().height;
@@ -73,7 +73,7 @@ navItems.forEach((item)=>{
 })
 
 const disHover = ()=>{
-    hoverSlider.style.display="none";     
+    hoverSlider.style.opacity="0";     
 }
 
 

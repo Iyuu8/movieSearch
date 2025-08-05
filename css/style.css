@@ -164,8 +164,8 @@ header{
     z-index: 2;
     max-width: 20rem;
     overflow: hidden;
-    transition: transform 0.2s ease;
-    display: none;
+    transition: all 0.3s ease;
+    opacity: 0;
     height: auto;
     min-height: fit-content;
 }   
