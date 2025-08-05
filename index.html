@@ -15,19 +15,28 @@
                 <form action="submit" class="search-form">
                     <input type="text" placeholder="Find Movies & TV" name="search-bar" class="search-bar">  
                     <div class="filter">
-                        <i class="fa-solid fa-magnifying-glass"></i> 
-                        <span>All</span>
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
-                                
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="disabled" id="filterOn">
+                            <span>All</span>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div> 
+                    </div>            
                 </form>
                 <ul class="nav-links">
-                    <li>Features</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Download</li>
+                    <li style="--pos:0">Features</li>
+                    <li style="--pos:1">About</li>
+                    <li style="--pos:2">Contact</li>
+                    <li style="--pos:3">Download</li>
                 </ul>
             </nav>
+            <div class="hover-info">
+                <div class="hover-content">
+                    <div class="hover-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo vel pariatur dolorum eos dicta omnis quidem. Totam aliquam dolores magnam? Suscipit pariatur, ratione rem repellat voluptate assumenda delectus modi qui? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti possimus assumenda accusamus deserunt aperiam veritatis? Excepturi inventore reprehenderit, corporis quaerat laudantium, quam molestiae laboriosam assumenda magni minus, accusamus necessitatibus illum?</div>
+                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nostrum cupiditate distinctio deserunt harum, quia iusto fugiat asperiores illum exercitationem ullam veritatis dolor sed ipsa omnis eligendi tempore quas provident.</div>
+                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium explicabo adipisci perspiciatis expedita ut dicta, illo ratione modi ullam labore beatae debitis in nemo fuga? Dolores sint dignissimos temporibus!</div>
+                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eos, expedita natus nemo nihil aspernatur asperiores, eius a atque commodi vel vero velit adipisci est eveniet, perferendis rerum eum tempora? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, corrupti non? Obcaecati quasi commodi distinctio consequatur ab velit accusamus tempore ipsum deserunt? Porro, eum ducimus. Rem corrupti iusto provident ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga amet autem sunt est laudantium itaque obcaecati porro, cum soluta voluptatibus, nulla, voluptate officia vel! Nulla possimus commodi ipsum maiores quidem.</div>
+                </div>
+            </div>
         </header>
         <main>
             <section class="hero">
@@ -37,7 +46,7 @@
                 </div>
                 <div class="hero-slider">
                     <div class="slider-content">
-                        <div class="slider-item active">
+                        <div class="slider-item">
                             <img src="img/movie1.jpg" alt="Slider Image 1">
                         </div>
                         <div class="slider-item">

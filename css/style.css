@@ -44,6 +44,7 @@ body{
 header{
     background-color: var(--header-background); 
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 .nav-bar{
     display: grid;
@@ -77,6 +78,7 @@ header{
     justify-content: start;
     align-items: center;
     position: relative;
+    width: 60%;
 }
 .filter{
     position: absolute;
@@ -84,9 +86,12 @@ header{
     color: var(--hilight);
     font-size: 3ch;
     opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 .search-bar{
-    width: 60%;
+    width: 100%;
     padding: 0.7rem 1rem 0.7rem 3rem;
     border: none;
     outline: none;
@@ -97,9 +102,15 @@ header{
     color: var(--text-color);
     transition: background-color 0.2s ease-in-out;
 }
-.search-bar:is(:active,:focus){
-    background-color: var(--hilight);
+#filterOn{
+    cursor:pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
 }
+#filterOn:hover{
+    background-color: var(--dark);
+}
+
 .search-bar::placeholder{
     color: var(--text-color);
     opacity: 0.7;
@@ -115,7 +126,64 @@ header{
     color: var(--text-color);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2.75ch;
+}
+.nav-links li{
     cursor: pointer;
+    position: relative;
+}
+.nav-links li::before{
+    opacity: 0;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 135%;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid var(--hilight);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transform: translateX(-1px);
+    transition: all 0.3s ease;
+}
+.nav-links li:hover::before{
+    transform: translate(1px);
+    opacity: 1;
+}
+.hover-info{
+    --hover-items:4;
+    --visible-items:1;
+    position: absolute;
+    top: 90%;
+    background-color: var(--text-color);
+    color: var(--dark);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5ch;
+    padding: 1rem;
+    border-radius: 1rem;
+    left: 60%;
+    z-index: 2;
+    max-width: 20rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    display: none;
+    height: auto;
+    min-height: fit-content;
+}   
+.hover-content{
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    gap: 2rem;
+    width: calc(var(--hover-items)*20rem);
+    transition: all 0.3s ease;
+    height: auto;
+    
+    
+}
+.hover-item{
+   flex-grow: 1;
+   width: 20rem;
+   height: max-content;
 }
 main{
     display: flex;
@@ -147,6 +215,7 @@ main{
 .hero-content h1{
     font-size: 5ch;
     text-align: center;
+    color: var(--hilight);
 }
 .hero-content p{
     font-size: 3ch;
@@ -224,6 +293,7 @@ main{
 .disabled{
     display: none;
 }
+
 
 footer{
     position: absolute;
