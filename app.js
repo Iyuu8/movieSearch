@@ -86,3 +86,6 @@ document.addEventListener("mouseover",(e)=>{
         disHover();
     }
 })
+
+// for AOS effects 
+AOS.init();

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -23,53 +24,159 @@
                     </div>            
                 </form>
                 <ul class="nav-links">
-                    <li style="--pos:0">Features</li>
-                    <li style="--pos:1">About</li>
-                    <li style="--pos:2">Contact</li>
-                    <li style="--pos:3">Download</li>
+                    <li style="--pos:0"><a href="#feature-sec">Features</a></li>
+                    <li style="--pos:1"><a href="#about-sec">About</a></li>
+                    <li style="--pos:2"><a href="#contact-sec">Dev&Contact</a></li>
+                    <li style="--pos:3"><a href="#download-sec">Download</a></li>
                 </ul>
             </nav>
             <div class="hover-info">
                 <div class="hover-content">
-                    <div class="hover-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo vel pariatur dolorum eos dicta omnis quidem. Totam aliquam dolores magnam? Suscipit pariatur, ratione rem repellat voluptate assumenda delectus modi qui? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti possimus assumenda accusamus deserunt aperiam veritatis? Excepturi inventore reprehenderit, corporis quaerat laudantium, quam molestiae laboriosam assumenda magni minus, accusamus necessitatibus illum?</div>
-                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nostrum cupiditate distinctio deserunt harum, quia iusto fugiat asperiores illum exercitationem ullam veritatis dolor sed ipsa omnis eligendi tempore quas provident.</div>
-                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium explicabo adipisci perspiciatis expedita ut dicta, illo ratione modi ullam labore beatae debitis in nemo fuga? Dolores sint dignissimos temporibus!</div>
-                    <div class="hover-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eos, expedita natus nemo nihil aspernatur asperiores, eius a atque commodi vel vero velit adipisci est eveniet, perferendis rerum eum tempora? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, corrupti non? Obcaecati quasi commodi distinctio consequatur ab velit accusamus tempore ipsum deserunt? Porro, eum ducimus. Rem corrupti iusto provident ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga amet autem sunt est laudantium itaque obcaecati porro, cum soluta voluptatibus, nulla, voluptate officia vel! Nulla possimus commodi ipsum maiores quidem.</div>
+                    <div class="hover-item feature">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum voluptatum libero ad, facilis quae, sapiente laboriosam aliquid placeat alias iste non doloribus optio inventore eius magni! Numquam, quas doloribus.</div>
+                    <div class="hover-item about"><span>yuuZ</span> is a simple app that lets you search for movies and TV shows and instantly view posters, ratings, and plot summaries. <br> It uses the OMDb API to fetch accurate and up-to-date information.</div>
+                    <div class="hover-item contact">
+                        <h2>follow us for more!</h2>
+                        <ul class="contacts">
+                            <li>Email: <a href="mailto:anesbenaziza19@gmail.com">Email me</a></li>
+                            <li>Github: <a href="https://github.com/Iyuu8">Iyuu8</a></li>
+                            <li>Instagram: <a href="https://www.instagram.com/yubi_ins/">yubi_ins</a></li>
+                        </ul>
+                    </div>
+                    <div class="hover-item download">
+                        <h2>Download the project</h2>
+                        <a href="./Download/movieSearch_ver1.zip" download>Download</a>
+                    </div>
                 </div>
             </div>
         </header>
         <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Find Your Next Favorite Movie or TV Show with yuuZ</h1>
-                    <p>Discover a world of entertainment at your fingertips, including hidden gems and trending titles, do not waste this opprtunity.</p>
-                </div>
-                <div class="hero-slider">
-                    <div class="slider-content">
-                        <div class="slider-item">
-                            <img src="img/movie1.jpg" alt="Slider Image 1">
-                        </div>
-                        <div class="slider-item">
-                            <img src="img/movie2.jpg" alt="Slider Image 2">
-                        </div>
-                        <div class="slider-item">
-                            <img src="img/movie3.jpg" alt="Slider Image 3">
-                        </div>
-                        <div class="slider-item">
-                            <img src="img/movie4.jpg" alt="Slider Image 4">
-                        </div>
-                        <div class="slider-item">
-                            <img src="img/movie5.jpg" alt="Slider Image 5">
-                        </div>
-                        <div class="slider-item">
-                            <img src="img/movie6.jpg" alt="Slider Image 6">
-                        </div>
+            <section class="page1">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>Find Your Next Favorite Movie or TV Show with yuuZ</h1>
+                        <p>Discover a world of entertainment at your fingertips, including hidden gems and trending titles, do not waste this opprtunity.</p>
                     </div>
-                    <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="hero-slider">
+                        <div class="slider-content">
+                            <div class="slider-item">
+                                <img src="img/movie1.jpg" alt="Slider Image 1">
+                            </div>
+                            <div class="slider-item">
+                                <img src="img/movie2.jpg" alt="Slider Image 2">
+                            </div>
+                            <div class="slider-item">
+                                <img src="img/movie3.jpg" alt="Slider Image 3">
+                            </div>
+                            <div class="slider-item">
+                                <img src="img/movie4.jpg" alt="Slider Image 4">
+                            </div>
+                            <div class="slider-item">
+                                <img src="img/movie5.jpg" alt="Slider Image 5">
+                            </div>
+                            <div class="slider-item">
+                                <img src="img/movie6.jpg" alt="Slider Image 6">
+                            </div>
+                        </div>
+                        <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
 
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="feature-sec" id="feature-sec">
+                <div>
+                    <!-- will be designed after deciding the features -->
                 </div>
             </section>
+
+            <section class="about-sec" id="about-sec">
+                <div>
+                    <article class="about-yuuz">
+                        <div class="yuuz-content">
+                            
+                            <h2>What is yuuZ</h2>
+                            <p data-aos="fade-right"
+                            data-aos-delay="100"
+                            data-aos-duration="1000">yuuZ is a lightweight movie & TV search app that lets you instantly find posters, ratings, and summaries with a clean, responsive design powered by the OMDb API.</p>
+
+                            <p class="space-before" data-aos="fade-right"
+                            data-aos-delay="200"
+                            data-aos-duration="1000">This project was built to practice real-world API integration and enhance interactive UI development with HTML, CSS, and JavaScript. yuuZ focuses on delivering a smooth user experience with animations and a minimalistic design for easy movie browsing.</p>
+                        </div>
+                        <figure class="center">
+                            <img class="example" src="img/movie3.jpg" alt="img from mobile yuuZ"
+                             data-aos="fade-left"
+                             data-aos-duration="500"
+                             data-aos-offset="50">
+                        </figure>
+                        
+                        
+                    </article>
+
+                    <article class="reason">
+                        <figure class="center" data-aos="fade-right"
+                        data-aos-duration="800"><img class="example" src="img/yuuZ_PC.png" alt=""></figure>
+                        <div class="reason-content"><h2>Why Was yuuZ Built</h2>
+                        <p data-aos="fade-left"
+                        data-aos-duration="1000">As a passionate developer, I created yuuZ to combine learning with practical experience in APIs, DOM manipulation, and CSS animations, while building something useful.</p></div>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="contact-sec" id="contact-sec">
+                <div class="contact-container">
+                    <div class="contact-design">
+                        <div class="design1 design design-mod1"></div>
+                        <div class="design2 design design-mod2"></div>
+                        <div class="design3 design design-mod3"></div>
+                        <div class="design4 design design-mod1"></div>
+                        <div class="design5 design design-mod4"></div>
+                        <div class="design6 design design-mod2"></div>
+                        <div class="design7 design design-mod3"></div>
+                        <div class="design8 design design-mod1"></div> 
+                        <div class="design9 design design-mod2"></div>
+                        <!-- <div class="design10 design design-mod1"></div>
+                        <div class="design11 design design-mod1"></div>
+                        <div class="design12 design design-mod1"></div> -->
+
+
+                    </div>
+                    <article class="contact-content">
+                        <h2>follow us for more!</h2>
+                        <ul>
+                            <li style="--space:1;">Email: <a href="mailto:anesbenaziza19@gmail.com">Email me</a></li>
+                            <li style="--space:2;">Github: <a href="https://github.com/Iyuu8">Iyuu8</a></li>
+                            <li style="--space:3;">Instagram: <a href="https://www.instagram.com/yubi_ins/">yubi_ins</a></li>
+                        </ul>
+                    </article>
+                    
+                </div>
+            </section>
+
+            <section class="download-sec" id="download-sec">
+                <div class="download-container">
+                    <article class="download-content">
+                        <h2></h2>
+                        <p></p>
+
+                    </article>
+                    <div class="download-design">
+
+                        <div class="circle-design">
+                            <img src="img/phone_case .png" alt="">
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+
+            </section>
+            
+
+            
 
             <section class="content">
                 <!-- should contain movies and TV shows -->
@@ -77,10 +184,11 @@
 
         </main>
 
-        <footer>
+        <!-- <footer>
                 <p>&copy; 2025 Benaziza Ayoub. <a href="https://github.com/Iyuu8/movieSearch.git" target="_blank">View on GitHub</a></p>
-        </footer>
+        </footer> -->
         <script src="https://kit.fontawesome.com/c0ecd3a312.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
        <script src="./app.js"></script> 
     </body>
 </html>
