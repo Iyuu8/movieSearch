@@ -592,6 +592,7 @@ header{
     border-radius: 2rem;
     color: var(--text-color);
     min-width: 50%;
+    width: auto;
 }
 .contact-div-bkg h2{
     color:var(--hilight);
@@ -601,25 +602,77 @@ header{
     height: 80vh;
     background: var(--download-gradient);
     min-height: max-content;
+    position: relative;
 }
 .download-container{
     display: grid;
     grid-template-columns: repeat(6,1fr);
-    grid-template-areas: "download download download-img download-img download-img download-img";
+    grid-template-areas: "download download download  download download-img download-img";
     height: 100%;
 
 }
 .download-content{
     grid-area: download;
+    padding: 7% 0rem 1rem 3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    gap: 10%;
+    height: 100%;
+    max-height: 80vh;
+    position: absolute;
+    
+
+}
+.download-content h2{
+    color: var(--hilight);
+    line-height: 2.5ch;
+    display: flex;
+    align-items: center;
+}
+.download-content ul{
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    align-items: start;
+}
+.download-content li{
+    padding-left: calc(var(--space)*4rem);
+transition: all 0.2s ease;}
+.download-content li:hover{
+    transform: translateX(10px);
+}
+.download-bt-container{
+    display: flex;
+    justify-content: center;
+} 
+.download-content a:any-link{
+    padding: 1rem;
+    background-color: var(--hilight);
+    width: max-content;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 1rem;
+    transition: all 0.3s ease!important;
+}
+.download-content a:hover{
+    transform: scale(110%)!important;
+}
+.gap{
+    height: 50%;
+    display: flex;
+    gap: 12%;
+    flex-flow: column nowrap;
 }
 .download-design{
     grid-area: download-img;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     height: 100%;
     min-height: max-content;
-    padding: 0 15%;
 }
 .circle-design{
     height: 70%;
