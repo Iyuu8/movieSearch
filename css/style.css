@@ -55,18 +55,16 @@
     );
     --contact-gradient:linear-gradient(
         to right,
-        rgb(142, 187, 223),
-        rgb(217, 219, 255),
-        rgb(227, 185, 255)
+        rgb(239, 236, 255),
+        rgb(251, 236, 255),
+        rgb(244, 228, 255)
 
     );
     --design-mod1:rgb(93, 0, 103);
     --design-mod2:var(--hilight);
     --design-mod3:rgb(169, 8, 186);
     --design-mod4:rgb(240, 100, 255);
-    
-    
-
+    --caption-color:rgb(59, 0, 71);
 }
 html{
     scroll-behavior: smooth;
@@ -478,7 +476,7 @@ header{
 .contact-sec{
     position: relative;
     min-height: 20vh;
-    height: 18rem;
+    height: 20rem;
     background: var(--contact-gradient);
     z-index: 2;
 }
@@ -490,7 +488,8 @@ header{
     ;
     display: flex;
     gap:5rem;
-    padding: 2rem 5rem;
+    padding: 0.5rem 5rem;
+    justify-content: center;
 
 }
 .contact-design{
@@ -510,19 +509,10 @@ header{
     border-right: 200px solid transparent;
 
 }
-.design-mod1{
-    border-bottom-color: var(--design-mod1);
-}
-.design-mod2{
-    border-bottom-color: var(--design-mod2);
-}
-.design-mod3{
-    border-bottom-color: var(--design-mod3);
-}
-
-.design-mod4{
-    border-bottom-color: var(--design-mod4);
-}
+.design-mod1{border-bottom-color: var(--design-mod1);}
+.design-mod2{border-bottom-color: var(--design-mod2);}
+.design-mod3{border-bottom-color: var(--design-mod3);}
+.design-mod4{border-bottom-color: var(--design-mod4);}
 .design1{transform:rotate(30deg) translateY(15rem) translateX(-5rem);}
 .design2{transform:rotate(150deg) translateY(20rem) translateX(6rem);}
 .design3{transform:rotate(220deg) translateY(2rem) translateX(-2rem);}
@@ -531,37 +521,80 @@ header{
 .design6{transform:rotate(-40deg) translateY(30rem) translateX(18rem);}
 .design7{transform:rotate(135deg) translateY(-20rem) translateX(-38rem);}
 .design8{transform:rotate(10deg) translateY(-2.5rem) translateX(36rem);}
+.design9{transform:rotate(-8deg) translateY(10rem) translateX(50rem);}
+.design10{transform: rotate(25deg) translateY(-29rem) translateX(62rem);}
+.design11{transform: rotate(160deg) translateY(-7rem) translateX(-65rem);}
+.design12{transform: rotate(-10deg) translateY(11rem) translateX(86rem);}
+.design13{transform: rotate(90deg) translateY(-110rem) translateX(-10rem);}
 .contact-content{
     display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
+    flex-flow: row nowrap;
+    gap: 2rem;
     color: var(--dark);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3ch;
     align-items: start;
     justify-content: center;
     z-index: 3;
+    height: 100%;
 }
 .contact-content h2{
-    background: var(--title-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
 }
-.contact-content ul{
+.contact-ul{
     list-style: none;
     line-height: 4ch;
 }
-.contact-content li{
+.contact-links li{
     padding-left: calc(var(--space)*2rem);
     transition: all 0.2s ease;
 }
-.contact-content li:hover{
+.contact-container li:hover{
     transform: translateX(7px);
 }
 .contact-content a:any-link{
     text-decoration: none;
     color: var(--text-color);
+}
+.pfp-container{
+    height: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.pfp-container img{
+    height: 100%;
+    border-radius: 1rem;
+    display: block;
+}
+.pfp-container figcaption{
+    color: var(--text-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background:var(--background-gradient);
+    margin-top: 0.1rem;
+    border-radius: 0.2rem;
+    padding: 0.1rem 0.3rem;
+}
+.contact-intro{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: end;
+}
+.contact-intro li{
+    padding-right: calc(var(--space)*2rem);
+    display: flex;
+    justify-content: end;
+    transition: all 0.2s ease;
+}
+.contact-div-bkg{
+    background: var(--background-gradient);
+    padding: 2rem;
+    border-radius: 2rem;
+    color: var(--text-color);
+    min-width: 50%;
+}
+.contact-div-bkg h2{
+    color:var(--hilight);
 }
 .download-sec{
     min-height: 80vh;
