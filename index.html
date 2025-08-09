@@ -6,6 +6,8 @@
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <base href="./">
+
     </head>
     <!-- even if this project doesn't turn out as intended never loose hop, you're not alone in that, and i'ts clearly not the first time you experience it, just learn -->
     <body>
@@ -51,6 +53,14 @@
             </div>
         </header>
         <main>
+            <section class="content">
+                <ul class="search-results"></ul>
+                <div class="no-results">
+                    <h1>please enter something</h1>
+                </div>
+                <button class="exit"><i class="fa-solid fa-xmark"></i></button>
+            </section>
+
             <section class="page1">
                 <div class="hero">
                     <div class="hero-content">
@@ -216,13 +226,10 @@
                     </div>
                 </div>
 
-            </section>
+            </section> 
             
 
             
-            <section class="content">
-                <!-- should contain movies and TV shows -->
-            </section>
 
         </main>
 

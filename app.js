@@ -34,13 +34,31 @@ sliders.forEach(val => sliderInit(val));
 const searchForm = document.querySelector(".search-form");
 const searchBar = document.querySelector(".search-bar");
 const filter = document.querySelector(".filter");
+let searchContent = document.querySelector(".content");
+let searchResult = document.querySelector(".search-results");
+let noResults = document.querySelector(".no-results");
+let hero = document.querySelector(".page1");
+let feature = document.querySelector(".feature-sec");
+let about = document.querySelector(".about-sec");
+let contact = document.querySelector(".contact-sec");
+let download = document.querySelector(".download-sec");
 searchBar.addEventListener("click",(e)=>{
     e.stopPropagation();    
+    noResults.style.opacity ="0";
+    if(searchResult.childElementCount===0) noResults.style.opacity ="1";
     searchBar.style.backgroundColor="var(--hilight)";
     searchForm.querySelector("#filterOn").classList.remove("disabled");
     filter.style.color="var(--text-color)";
     searchBar.placeholder=""; 
     searchBar.style.paddingLeft="23%";   
+    searchContent.style.minHeight='85vh';
+    searchContent.style.height='max-content';
+    hero.style.display='none';
+    feature.style.display="none";
+    about.style.display="none";
+    contact.style.display="none";
+    download.style.display="none";
+
 })
 const disFilter = ()=>{
     searchForm.querySelector("#filterOn").classList.add("disabled");
@@ -49,9 +67,76 @@ const disFilter = ()=>{
     searchBar.style.paddingLeft="3rem";
     searchBar.style.backgroundColor="var(--search-bar-background)";
 }
+const disSearch = () =>{
+    searchContent.style.minHeight='0';
+    searchContent.style.height='0px';
+    hero.style.display='flex';
+    feature.style.display="block";
+    about.style.display="block";
+    contact.style.display="block";
+    download.style.display="block";
 
-//main functionality
+}
 
+//main functionality and OMDb api, key 75aa3cc0
+
+
+let curController = null;
+const getShows = async (signal,title,year,type) => {
+    try{
+        year = year ? '&y='+year : '';
+        type = type ? '&type='+type : '';
+        let response = await fetch(
+            `http://www.omdbapi.com/?apikey=75aa3cc0&s=${title}${year}${type}`,{signal}
+        );
+        let result = await response.json();
+        return result;
+    }catch(err){
+        if(err.name==="AbortError"){
+            console.log("prev search aborted");
+            return null;
+        }
+        return false;
+    }
+}
+searchForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    searchBar.value = '';
+})
+searchBar.addEventListener("input",async e => {
+    const query = searchBar.value.trim();
+    while(searchResult.firstChild){
+        searchResult.firstChild.remove();
+    }
+    if(curController) curController.abort();
+    curController = new AbortController();
+    const result = await getShows(curController.signal,query);
+    if(result && result.Response !== 'False'){
+        console.log(result);
+        search = result.Search;
+        search.forEach((val)=>{
+
+            let newItem = document.createElement("li");
+            newItem.classList.add("search-item");
+            newItem.setAttribute("name",val.Title);
+            if(val.Title.length>35){val=val.slice(0,36)+'...';}
+            newItem.innerHTML = `<figure>
+                                    <div class="poster-hover">${val.Title}</div>
+                                    <img src="${val.Poster}" alt="movie-exp1">
+                                </figure>
+                                <h2>${val.Title}</h2>   
+                                <p>${val.Type}:${val.Year}</p>`;
+            searchResult.appendChild(newItem);
+            
+        })
+    };
+    if(searchResult.childElementCount>0) noResults.style.opacity="0";
+    else noResults.style.opacity = "1";
+    if(searchBar.value.trim().length>0) {noResults.querySelector("h1").innerText = 'Not Found';}
+    else {noResults.querySelector("h1").innerText = 'please enter something';}
+    console.log(searchBar.value.trim().length);
+
+})
 
 
 // hover effect on nav items ( supposed to be links)
@@ -80,12 +165,25 @@ const disHover = ()=>{
 // to cancel effects from eventListeners...
 document.addEventListener("click",(e)=>{
     if(!searchForm.contains(e.target)) disFilter();
+    if(searchResult.childElementCount===0) disSearch();
 })
 document.addEventListener("mouseover",(e)=>{
     if(!navItemsContainer.contains(e.target) && !hoverSlider.contains(e.target)){
         disHover();
     }
+    
+})
+
+// to close the search area
+const exit = document.querySelector(".exit");
+exit.addEventListener("click",()=>{
+    while(searchResult.firstChild){
+        searchResult.firstChild.remove();
+    }
+    searchBar.value='';
+    disSearch();
 })
 
 // for AOS effects 
 AOS.init();
+
