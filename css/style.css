@@ -65,6 +65,12 @@
         transparent,
         rgba(0, 0, 0, 1)
     );
+    --mes-color:linear-gradient(
+        135deg,
+        rgba(226, 226, 226, 0.427),
+        rgba(226, 226, 226, 0.245)
+        
+    );
 
     --design-mod1:rgb(93, 0, 103);
     --design-mod2:var(--hilight);
@@ -78,20 +84,13 @@
     --text-color:aliceblue;
     --footer-background:#151515b8 ;
     --slider-fade:#202020;
-    --mes-color:linear-gradient(
-        135deg,
-        rgba(226, 226, 226, 0.427),
-        rgba(226, 226, 226, 0.245)
-        
-    );
+    --grey:rgb(162, 162, 162);
     
 }
 html{
     scroll-behavior: smooth;
 }
-html,body{
-    height: 100%;
-}
+
 body{
     position: relative;
     background: var(--background-gradient);
@@ -820,6 +819,86 @@ transition: all 0.2s ease;}
 .exit:hover{
     transform: rotate(360deg) scale(1.02) translateY(1px);
 }
+.show-info{
+    height: 100%;
+    min-height: 85vh;
+    display: none;
+
+    
+}
+.show-details{
+    display: flex;
+    height: 85vh;
+    gap: 2rem;
+    background: var(--hero-gradient);
+    padding: 1.5rem 1.5rem 1.5rem 0rem;
+    position: relative;
+}
+.show-poster{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    padding-top: 0;
+    min-width: 27%;
+}
+.show-poster img{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+}
+.info{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text-color);
+    font-size: 3ch;
+}
+.main-details p{
+    font-size: 1.6ch;
+    color: var(--grey);
+}
+.data-genre-rating{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+}
+.ratings{
+    display: flex;
+    list-style:none;
+    gap: 1.5rem;
+}
+.ratings li{
+    display: flex;
+    gap: 0.2rem;
+    font-size: large;
+    align-items: center;
+}
+.ratings li img{
+    width: 1.3rem;
+}
+.exit-movie{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+    color: var(--hilight);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+.exit-movie:hover{
+    transform: rotate(360deg) translateY(1px);
+}
+
 footer{
     position: absolute;
     bottom: 0;

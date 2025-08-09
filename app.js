@@ -42,6 +42,24 @@ let feature = document.querySelector(".feature-sec");
 let about = document.querySelector(".about-sec");
 let contact = document.querySelector(".contact-sec");
 let download = document.querySelector(".download-sec");
+const showInfo = document.querySelector(".show-info");
+const exit = document.querySelector(".exit");
+let exitMovie = document.querySelector(".exit-movie");
+
+// to close the search area
+const exitAll = ()=>{
+    while(searchResult.firstChild){
+        searchResult.firstChild.remove();
+    }
+    searchBar.value='';
+    disSearch();
+    showInfo.style.display='none';
+
+}
+exit.addEventListener("click",exitAll);
+
+
+
 searchBar.addEventListener("click",(e)=>{
     e.stopPropagation();    
     noResults.style.opacity ="0";
@@ -58,6 +76,7 @@ searchBar.addEventListener("click",(e)=>{
     about.style.display="none";
     contact.style.display="none";
     download.style.display="none";
+    showInfo.style.display='none';
 
 })
 const disFilter = ()=>{
@@ -79,6 +98,10 @@ const disSearch = () =>{
 }
 
 //main functionality and OMDb api, key 75aa3cc0
+// for movie details
+
+
+
 
 
 let curController = null;
@@ -119,6 +142,58 @@ searchBar.addEventListener("input",async e => {
             let newItem = document.createElement("li");
             newItem.classList.add("search-item");
             newItem.setAttribute("name",val.Title);
+            newItem.setAttribute("id",val.imdbID);
+            newItem.addEventListener("click",async ()=>{
+                try{
+                    let response = await fetch(`http://www.omdbapi.com/?apikey=75aa3cc0&i=${val.imdbID}`);
+                    let result = await response.json();
+                    exitMovie = document.createElement("button");
+                    exitMovie.classList.add("exit-movie");
+                    showInfo.innerHTML=`<div class="show-details">
+                                            <div class="show-poster">
+                                                <img src="${result.Poster}" alt="poster of ${result.Title}">
+                                            </div>
+                                            <div class="info">
+                                                <div class="main-details">
+                                                    <h1>${result.Title}</h1>
+                                                    <p>Directed by ${result.Director}</p>
+                                                </div>
+                                                <div class="data-genre-rating">
+                                                    <p>released in: ${result.Released}</p>
+                                                    <p>${result.Rated}, ${result.Genre}:</p>
+                                                    
+                                                    <ul class="ratings">
+                                                        <li class="rotten-tomatoes">
+                                                            <img src="./img/rottenTomatoes.png" alt="">
+                                                            <p>${result.Ratings[1].Value}</p>
+                                                        </li>
+                                                        <li class="imdb-rating">
+                                                            <img src="./img/Imdb.png" alt="">
+                                                            <p>${result.imdbRating}</p>
+                                                        </li>
+                                                        <li class="metacritic">
+                                                            <img src="./img/Metacritic_M.png" alt="">
+                                                            <p>${result.Ratings[2].Value}</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="Plot">
+                                                    <h2>Plot</h2>
+                                                    <p>${result.Plot}</p>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                    exitMovie.innerHTML='<i class="fa-solid fa-xmark"></i>';
+                    document.querySelector(".show-details").appendChild(exitMovie);
+                    exitMovie.addEventListener("click",exitAll);
+                    showInfo.style.display='block';
+                    searchContent.style.minHeight='0';
+                    searchContent.style.height='0px';
+                    
+                }catch(err){
+                    console.log(err);
+                }
+            });
             if(val.Title.length>35){val=val.slice(0,36)+'...';}
             newItem.innerHTML = `<figure>
                                     <div class="poster-hover">${val.Title}</div>
@@ -137,7 +212,6 @@ searchBar.addEventListener("input",async e => {
     console.log(searchBar.value.trim().length);
 
 })
-
 
 // hover effect on nav items ( supposed to be links)
 const navItemsContainer = document.querySelector(".nav-links");
@@ -174,15 +248,13 @@ document.addEventListener("mouseover",(e)=>{
     
 })
 
-// to close the search area
-const exit = document.querySelector(".exit");
-exit.addEventListener("click",()=>{
-    while(searchResult.firstChild){
-        searchResult.firstChild.remove();
-    }
-    searchBar.value='';
-    disSearch();
-})
+
+
+    
+
+
+
+
 
 // for AOS effects 
 AOS.init();
